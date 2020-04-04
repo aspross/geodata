@@ -14,15 +14,18 @@ class Asset
     // Geodata address
     protected $address;
 
+    // Geodata distance
+    protected $distance;
+
     // Geodata coordinates
     protected $data = [];
 
     /**
      * Get geodata from given address.
      *
-     * @return string Path to asset file
+     * @return array Geodata coordinates
      **/
-    public static function getCoordinatesAsset(string $address): array
+    public static function getCoordinates(string $address): array
     {
         $address = rawurlencode( $address );
         $data = get_transient( 'geocode_' . $address );
@@ -43,6 +46,37 @@ class Asset
         }
 
         return $data;
+    }
+
+    /**
+     * Return Distance between two locations.
+     *
+     * @return array Geodata coordinates
+     **/
+    public static function getDistance(string $location1Latitude, string $location1Longitude, string $location2Latitude, string $location2Longitude, string $unit = 'K'): 
+    {   
+        // both with the same location
+        if (($location1Latitude == $location2Latitude) && ($location1Longitude == $location2Longitude)) {
+            $distance = 0;
+        }
+        else {
+            $theta = $location1Longitude - $location2Longitude;
+            $distance = sin(deg2rad($location1Latitude)) * sin(deg2rad($location2Latitude)) +  cos(deg2rad($location1Latitude)) * cos(deg2rad($location2Latitude)) * cos(deg2rad($theta));
+            $distance = acos($distance);
+            $distance = rad2deg($distance);
+            $miles = $distance * 60 * 1.1515;
+            $unit = strtoupper($unit);
+
+            if ($unit == "K") {
+                $distance = ($miles * 1.609344);
+            } else if ($unit == "N") {
+                $distance = ($miles * 0.8684);
+            } else {
+                $distance = $miles;
+            }
+        }
+
+        return $distance;
     }
 
 }
