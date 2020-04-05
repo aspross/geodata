@@ -9,7 +9,7 @@
 
 namespace AnthonySpross\Assets;
 
-class Asset
+class GeoData
 {
     // Geodata address
     protected $address;

@@ -1,19 +1,14 @@
 {
     "name": "aspross/geodata",
-    "version": "dev-master",
     "description": "A helper package for working with geodata",
-    "license": "MIT",
+    "type": "composer-plugin",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Anthony Spross",
             "email": "me@anthony-spross.de"
         }
     ],
-    "source": {
-        "url": "git@github.com:aspross/geodata.git",
-        "type": "git",
-        "reference": "master"
-    },
     "autoload": {
         "psr-4": {
             "AnthonySpross\\Assets\\": "src/"
