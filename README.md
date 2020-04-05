@@ -23,7 +23,7 @@ getDistance(string $location1Latitude, string $location1Longitude, string $locat
 ```php
 <?php
 // get geodata coordinates for an address
-$coordinates = GeoData::getCoordinates("Saargemünder Straße 123, Kleinblittersdorf");
+$coordinates = GeoData::getCoordinates("Werner-Heisenberg-Allee 25, 80939 München, Deutschland");
 
 // get distance between two geodata positions
 $distance = GeoData::getDistance("48.8588377", "2.2770206", "52.5067614", "13.2846508", "K");
