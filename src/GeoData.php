@@ -53,7 +53,7 @@ class GeoData
      *
      * @return array Geodata coordinates
      **/
-    public static function getDistance(string $location1Latitude, string $location1Longitude, string $location2Latitude, string $location2Longitude, string $unit = 'K'): 
+    public static function getDistance(string $location1Latitude, string $location1Longitude, string $location2Latitude, string $location2Longitude, string $unit = 'K'): string 
     {   
         // both with the same location
         if (($location1Latitude == $location2Latitude) && ($location1Longitude == $location2Longitude)) {
