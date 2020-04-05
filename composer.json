@@ -12,7 +12,5 @@
         "psr-4": {
             "AnthonySpross\\Assets\\": "src/"
         }
-    },
-    "require": {},
-    "minimum-stability": "dev"
+    }
 }
