@@ -1,7 +1,6 @@
 {
     "name": "aspross/geodata",
     "description": "A helper package for working with geodata",
-    "type": "composer-plugin",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
